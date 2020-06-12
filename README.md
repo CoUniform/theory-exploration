@@ -22,23 +22,16 @@ That is, the user interaction with the tool consists of the following steps:
   
 <h3> Examples: </h3>  
   
-|    Program                                        |  Desired Goal      | Discovered Coinduction Hypothesis               |
-|:-------------------------------------------------:|-------------------:|:------------------------------------------------|
-| kappa_fg: forall x,y.  p(x,y) -> p(f(y), g(x))    | exist x, y. p(x,y) | p( f(fix[x] g(f(x)))  ,  g(f(fix[x] g(f(x)))) ) |
-| kappa_fg: forall x,y.  p(x,y) -> p(f(x,y), g(x,y))| exist x, y. p(x,y) |   p( f(fix[x] f(x, r), r), g(fix[x] f(x, r), r) ), where r = fix[y] g(fix[z] f(z, y), y)
+|    Program                                                 |  Desired Goal      | Discovered Coinduction Hypothesis                     |
+|:----------------------------------------------------------:|-------------------:|:-----------------------------------------------------|
+| kappa_fg: forall x,y.  p(x,y) -> p(f(y), g(x))             | exist x, y. p(x,y) | p( f(fix[x] g(f(x)))  ,  g(f(fix[x] g(f(x)))) ) |
+| kappa_fg: forall x,y.  p(x,y) -> p(f(x,y), g(x,y))         | exist x, y. p(x,y) |   p( f(fix[x] f(x, r), r), g(fix[x] f(x, r), r) ), where r = fix[y] g(fix[z] f(z, y), y)
+| kappa_stream0: forall x.  stream(x) -> stream(scons(0, x)) | exist x. stream(x) | stream(scons(0, fix[x] \scons(0, x)) )               | 
 
-  \hline
-    2 &
     \begin{array}{ll}
-    \\
+   \\
     \end{array}
-    & \exist{x, y} p(x,y) \\
-  \hline
-    3 &
-    \begin{array}{ll}
-      \kappa_{\stream0} &: \all{x}  \stream(x) \impl \stream(\scons(0, x))\\
-    \end{array}
-    & \exist{x} \stream(x) \\
+    &  \\
   \hline
     4 &
     \begin{array}{ll}
@@ -104,7 +97,7 @@ That is, the user interaction with the tool consists of the following steps:
     \end{array}     \\
   \hline
     3 &
-    \stream( \scons(0, \fix[x] \scons(0, x)) ) \\
+   \\
   \hline
     4 &
     \stream_{ZO}( \scons(0, \scons(1, \fix[x] \scons(0, \scons(1, x)))) ) \\
