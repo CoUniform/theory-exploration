@@ -1,6 +1,6 @@
 <h2> Implementation of coinductive Uniform proofs and coinductive theory exploration </h2>
 
-This is implementation of the calculus of *Coinductive Uniform Proofs (CUP)* and the heuristics for coinductive theory exploration. It accompanies the draft [2].
+This is implementation of the calculus of *Coinductive Uniform Proofs (CUP)* [1] and the heuristics for coinductive theory exploration introduced in [2,3]. This code accompanies the draft [2].
 
 The prototype implements the full cycle of *proof-search -- proof failure -- theory exploration -- proof recovery*.
 That is, the user interaction with the tool consists of the following steps:
@@ -48,3 +48,5 @@ Use `make` to compile and `./theory_exp ` to run the tool
 [1] H. Basold, E. Komendantskaya, Y. Li: Coinduction in Uniform: Foundations for Corecursive Proof Search with Horn Clauses. ESOP 2019 (28th European Symposium on Programming), 8-11 April 2019, Prague.
 
 [2] E.Komendantskaya, D.Rozplokhas, H.Basold: The New Normal: We cannot Eliminate the Cuts, but we can Explore them. Draft. 2020. 
+
+[3] P.Fu, E.Komendantskaya, T.Schrijvers, A.Pond. Proof Relevant Corecursive Resolution FLOPS'2016, Japan, 3-6 March 2016. Springer LNCS 9613, 126-143.
