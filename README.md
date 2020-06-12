@@ -1,4 +1,4 @@
-<h4> Implementation of coinductive Uniform proofs and coinductive theory exploration </h4>
+<h2> Implementation of coinductive Uniform proofs and coinductive theory exploration </h2>
 
 This is implementation of the calculus of *Coinductive Uniform Proofs (CUP)* and the heuristics for coinductive theory exploration. It accompanies the draft [2].
 
