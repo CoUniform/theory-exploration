@@ -1,12 +1,31 @@
-The calculus of \emph{coinductive uniform proofs} and the heuristics for discovery of coinduction hypothesis presented in this paper are implemented in Haskell and the full code base is attached to this submission.
+This is implementation of the calculus of *Coinductive Uniform Proofs (CUP)* and the heuristics for coinductive theory exploration.
 
-The prototype implements the full cycle of \emph{proof-search -- proof failure -- theory exploration -- proof recovery}
-as described in Introduction.
+The prototype implements the full cycle of *proof-search -- proof failure -- theory exploration -- proof recovery*.
 That is, the user interaction with the tool consists of the following steps:
 
-\begin{itemize}
-\item The user formulates a Horn clause theory (a program) and a ``Desired Goal'', see examples in Fig.~\ref{fig:P&G}
-   \begin{figure}[t]
+
+* The user formulates a Horn clause theory (a program) and a ``Desired Goal'', see examples in Fig.~\ref{fig:P&G}
+ 
+
+* On the first proof attempt, only the rules of the calculus of coinductive uniform proofs are applied (this includes the coinductive rules such as $\Cofix$ but excludes $\Cut$.)
+
+\item If such proof attempt fails, then a series of heuristics described in \S~\ref{sec:irreg}, \S~\ref{sec:exist} and \ref{ap:Fu} is applied, with the purpose of finding a suitable coinduction hypothesis and possibly also to discover a required fixed point term. The discovered coinduction hypotheses are shown in Fig.~\ref{fig:CH}.
+
+ 
+    
+
+
+\item The obtained coinduction hypotheses are then themselves proven using the rules of the calculus of coinductive uniform proofs. Those that cannot be proven are discarded. In particular, Fig.~\ref{fig:CH} shows only the coinduction hypotheses that were validated by the tool. 
+  
+\item The coinduction hypotheses that yield coinductive uniform proofs are added to the logic program in question (conservativity and coinductive soundness of such program transformation is proven in ~\cite{BasoldKL19-2})
+  and the tool makes another attempt to prove the ``Desired Goal''.
+
+\item Finally, the tool reports success or failure, and in the former case it declares the generated coinduction hypotheses and term substitutions that were used in order to prove the  ``Desired Goal''. All the desired goals listed in Fig.\ref{fig:P&G} were proven by the tool, with the help of the
+  coinduction hypotheses, as listed in Fig.~\ref{fig:CH}.
+  
+  \end{itemize}
+
+  \begin{figure}[t]
 \[ \begin{array}{|l|l|l|}
   \hline
   \# & \texttt{Program} & \texttt{Desired Goal} \\
@@ -79,12 +98,6 @@ That is, the user interaction with the tool consists of the following steps:
     \label{fig:P&G}
   \end{figure}
 
-\item On the first proof attempt, only the rules of the calculus of coinductive uniform proofs are applied (this includes the coinductive rules such as $\Cofix$ but excludes $\Cut$.)
-
-\item If such proof attempt fails, then a series of heuristics described in \S~\ref{sec:irreg}, \S~\ref{sec:exist} and \ref{ap:Fu} is applied, with the purpose of finding a suitable coinduction hypothesis and possibly also to discover a required fixed point term. The discovered coinduction hypotheses are shown in Fig.~\ref{fig:CH}.
-
- 
-    
   \begin{figure}[t]
 \[ \begin{array}{|l|l|}
   \hline
@@ -140,14 +153,6 @@ That is, the user interaction with the tool consists of the following steps:
     \label{fig:CH}
   \end{figure}
 
-\item The obtained coinduction hypotheses are then themselves proven using the rules of the calculus of coinductive uniform proofs. Those that cannot be proven are discarded. In particular, Fig.~\ref{fig:CH} shows only the coinduction hypotheses that were validated by the tool. 
-  
-\item The coinduction hypotheses that yield coinductive uniform proofs are added to the logic program in question (conservativity and coinductive soundness of such program transformation is proven in ~\cite{BasoldKL19-2})
-  and the tool makes another attempt to prove the ``Desired Goal''.
-
-\item Finally, the tool reports success or failure, and in the former case it declares the generated coinduction hypotheses and term substitutions that were used in order to prove the  ``Desired Goal''. All the desired goals listed in Fig.\ref{fig:P&G} were proven by the tool, with the help of the
-  coinduction hypotheses, as listed in Fig.~\ref{fig:CH}.
-  
-  \end{itemize}
+<h3> To install: </h3>
 
 Use `make` to compile and `./theory_exp ` to run the tool
