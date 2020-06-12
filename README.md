@@ -31,8 +31,8 @@ That is, the user interaction with the tool consists of the following steps:
 kappa_stream10: forall x. stream_ZO (x) -> stream_OZ(scons(1, x)) |  exist x. stream_ZO (x)  |  stream_ZO( scons(0, scons(1, fix[x] scons(0, scons(1, x)))) ) |
 |kappa_u: forall x.  p(f(x)) -> p(x) | p(a) |    forall x. p(x) |
 | kappa_i1: forall x.  p(f(x)) & q(x) -> p(x) 
-      kappa_i2: q(a) 
-      kappa_i3: forall x.  q(x) -> q(f(x))  |  p(a)  | forall x. q(x) -> p(x) |
+  kappa_i2: q(a) 
+  kappa_i3: forall x.  q(x) -> q(f(x))  |  p(a)  | forall x. q(x) -> p(x) |
       
   \hline
     7 &
