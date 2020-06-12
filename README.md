@@ -36,8 +36,7 @@ Example|    Program                                                 |  Desired G
 | (7) | kappa_from: forall x, y. fromP(s(x), y) -> fromP(x, scons(x, y))  | exist x, y. fromP(x, y)  |  fromP(infty, scons(infty, fix[y] scons(infty, y))), where infty = fix[x] s(x)|
 | (8) | kappa_from &: forall x, y. fromP(s(x), y) -> fromP(x, scons(x, y)) | exist y. fromP(0, y)  |  forall x. fromP(n, (fix[f] lam x. scons(x, f (s(x)))))| 
 | (9) | kappa_fib: forall x, y, z. fib(y, plusFun(x, y), z) -> fib(x, y, scons(x, z)) | exist x, y, z. fib(x, y, z)  |   fib(  infty,  infty, (scons ( infty,  (fix[z] (scons ( infty , z))), where infty = fix[x] plusFun ( x , x)|
-| (10) | kappa_fib: forall x, y, z. fib(y, plusFun(x, y), z) -> fib(x, y, scons(x, z)) | exist z. fib(0, 1, z) | 
-         forall x , y. fib (x,  y ,  (f ( x, y)) where f = fix[f] lam u , v. scons( u , (f ( v , (plusFun ( u , v))))|
+| (10) | kappa_fib: forall x, y, z. fib(y, plusFun(x, y), z) -> fib(x, y, scons(x, z)) | exist z. fib(0, 1, z) | forall x , y. fib (x,  y ,  (f ( x, y)) where f = fix[f] lam u , v. scons( u , (f ( v , (plusFun ( u , v))))|
 
 
 
