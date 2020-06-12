@@ -29,22 +29,11 @@ That is, the user interaction with the tool consists of the following steps:
 | kappa_stream0: forall x.  stream(x) -> stream(scons(0, x)) | exist x. stream(x) | stream(scons(0, fix[x] scons(0, x)) )               | 
 | kappa_stream01: forall x. stream_OZ (x) -> stream_ZO (scons(0, x)); 
 kappa_stream10: forall x. stream_ZO (x) -> stream_OZ(scons(1, x)) |  exist x. stream_ZO (x)  |  stream_ZO( scons(0, scons(1, fix[x] scons(0, scons(1, x)))) ) |
-
-
-  \hline
-    5 &
-    \begin{array}{ll}
-      \kappa_{u} &: \all{x}  p(f(x)) \impl p(x)\\
-    \end{array}
-    & p(a) \\
-  \hline
-    6 &
-    \begin{array}{ll}
-      \kappa_{i1} &: \all{x}  p(f(x)) \conj q(x) \impl p(x) \\
-      \kappa_{i2} &: q(a) \\
-      \kappa_{i3} &: \all{x}  q(x) \impl q(f(x))\\
-    \end{array}
-    & p(a) \\
+|kappa_u: forall x.  p(f(x)) -> p(x) | p(a) |    forall x. p(x) |
+| kappa_i1: forall x.  p(f(x)) & q(x) -> p(x) 
+      kappa_i2: q(a) 
+      kappa_i3: forall x.  q(x) -> q(f(x))  |  p(a)  | forall x. q(x) -> p(x) |
+      
   \hline
     7 &
     \begin{array}{ll}
@@ -76,11 +65,9 @@ kappa_stream10: forall x. stream_ZO (x) -> stream_OZ(scons(1, x)) |  exist x. st
   \end{figure}
 
 
-    5 &
-    \all{x} p(x) \\
-  \hline
+ 
     6 &
-    \all{x} q(x) \impl p(x) \\
+    \\
   \hline
     7 &
     \begin{array}{l}
