@@ -22,25 +22,15 @@ That is, the user interaction with the tool consists of the following steps:
   
 <h3> Examples: </h3>  
   
-|    Program                                     |  Desired Goal      | Discovered Coinduction Hypothesis               |
-|:----------------------------------------------:|-------------------:|:------------------------------------------------|
-| kappa_fg: forall x,y.  p(x,y) -> p(f(y), g(x)) | exist x, y. p(x,y) | p( f(fix[x] g(f(x)))  ,  g(f(fix[x] g(f(x)))) ) |
+|    Program                                        |  Desired Goal      | Discovered Coinduction Hypothesis               |
+|:-------------------------------------------------:|-------------------:|:------------------------------------------------|
+| kappa_fg: forall x,y.  p(x,y) -> p(f(y), g(x))    | exist x, y. p(x,y) | p( f(fix[x] g(f(x)))  ,  g(f(fix[x] g(f(x)))) ) |
+| kappa_fg: forall x,y.  p(x,y) -> p(f(x,y), g(x,y))| exist x, y. p(x,y) |   p( f(fix[x] f(x, r), r), g(fix[x] f(x, r), r) ), where r = fix[y] g(fix[z] f(z, y), y)
 
-
-  \begin{figure}[t]
-\[ \begin{array}{|l|l|l|}
-  \hline
-  \# & \texttt{} & \texttt{Desired Goal} \\
-  \hline
-    1 &
-    \begin{array}{ll}
-   \\
-    \end{array}
-    &  \\
   \hline
     2 &
     \begin{array}{ll}
-      \kappa_{fg} &: \all{x,y}  p(x,y) \impl p(f(x,y), g(x,y))\\
+    \\
     \end{array}
     & \exist{x, y} p(x,y) \\
   \hline
@@ -110,8 +100,7 @@ That is, the user interaction with the tool consists of the following steps:
   \hline
     2 &
     \begin{array}{l}
-      p( f(\fix[x] f(x, r), r), g(\fix[x] f(x, r), r) ) \\
-      \qquad \texttt{where  } r = \fix[y] g(\fix[z] f(z, y), y)
+    
     \end{array}     \\
   \hline
     3 &
@@ -161,4 +150,5 @@ Use `make` to compile and `./theory_exp ` to run the tool
 
 <h3> References </h3>
 [1] H. Basold, E. Komendantskaya, Y. Li: Coinduction in Uniform: Foundations for Corecursive Proof Search with Horn Clauses. ESOP 2019 (28th European Symposium on Programming), 8-11 April 2019, Prague.
+
 [2] E.Komendantskaya, D.Rozplokhas, H.Basold: The New Normal: We cannot Eliminate the Cuts, but we can Explore them. Draft. 2020. 
