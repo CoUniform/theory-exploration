@@ -28,7 +28,7 @@ That is, the user interaction with the tool consists of the following steps:
 | kappa_fg: forall x,y.  p(x,y) -> p(f(x,y), g(x,y))         | exist x, y. p(x,y) |   p( f(fix[x] f(x, r), r), g(fix[x] f(x, r), r) ), where r = fix[y] g(fix[z] f(z, y), y)
 | kappa_stream0: forall x.  stream(x) -> stream(scons(0, x)) | exist x. stream(x) | stream(scons(0, fix[x] scons(0, x)) )               | 
 | kappa_stream01: forall x. stream_OZ (x) -> stream_ZO (scons(0, x)); 
-kappa_stream10: forall x. stream_ZO (x) -> stream_OZ(scons(1, x))  exist x. stream_ZO (x)  |  stream_ZO( scons(0, scons(1, fix[x] scons(0, scons(1, x)))) ) |
+kappa_stream10: forall x. stream_ZO (x) -> stream_OZ(scons(1, x)) |  exist x. stream_ZO (x)  |  stream_ZO( scons(0, scons(1, fix[x] scons(0, scons(1, x)))) ) |
 
 
   \hline
