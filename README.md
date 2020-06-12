@@ -33,13 +33,9 @@ Example|    Program                                                 |  Desired G
 | (6)   | kappa_i1: forall x.  p(f(x)) & q(x) -> p(x) 
 ||  kappa_i2: q(a) 
 ||  kappa_i3: forall x.  q(x) -> q(f(x))  |  p(a)  | forall x. q(x) -> p(x) |
-      
-  \hline
-    7 &
-    \begin{array}{ll}
-      \kappa_{from} &: \all{x, y} \fromP(s(x), y) \impl \fromP(x, \scons(x, y)) \\
-    \end{array}
-    & \exist{x, y} \fromP(x, y) \\
+| (7) | kappa_from: forall x, y. fromP(s(x), y) -> fromP(x, scons(x, y))  | exist x, y. fromP(x, y)  |  fromP(infty, scons(infty, fix[y] scons(infty, y))), where infty = fix[x] s(x)|
+
+
   \hline
     8 &
     \begin{array}{ll}
@@ -58,11 +54,7 @@ Example|    Program                                                 |  Desired G
       \kappa_{fib} &: \all{x, y, z} \fib(y, \plusFun(x, y), z) \impl \fib(x, y, \scons(x, z)) \\
     \end{array}
     & \exist{z} \fib(0, 1, z) \\
-  \hline
-\end{array} \]
-  \caption{Evaluation: Logic programs and desired goals provided to the tool.}
-    \label{fig:P&G}
-  \end{figure}
+
 
 
  
@@ -71,7 +63,7 @@ Example|    Program                                                 |  Desired G
   \hline
     7 &
     \begin{array}{l}
-      \fromP(\infty, \scons(\infty, \fix[y] \scons(\infty, y))) \\
+      \\
       \qquad \texttt{where  } \infty = \fix[x] s \, x
     \end{array}     \\
   \hline
@@ -94,9 +86,7 @@ Example|    Program                                                 |  Desired G
      \\
      \hline
 \end{array} \]
-  \caption{Coinductive Hypotheses discovered by the tool according to the heuristics described in  \S~\ref{sec:irreg} and \ref{ap:Fu}. We shorten the fixed point term $\fix[x] s(x)$ by using notation $\infty$.}
-    \label{fig:CH}
-  \end{figure}
+
 
 <h3> To install: </h3>
 
