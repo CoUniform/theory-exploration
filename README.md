@@ -15,7 +15,7 @@ That is, the user interaction with the tool consists of the following steps:
 
 * The obtained coinduction hypotheses are then themselves proven using the rules of the calculus of coinductive uniform proofs. Those that cannot be proven are discarded. 
   
-* The coinduction hypotheses that yield coinductive uniform proofs are added to the logic program in question (conservativity and coinductive soundness of such program transformation is proven in [1])
+* The coinduction hypotheses that yield coinductive uniform proofs are then used as a cut formula, and thus added to the proof in question (conservativity and coinductive soundness of such program transformation is proven in [1])
   and the tool makes another attempt to prove the ``Desired Goal''.
 
 * Finally, the tool reports success or failure, and in the former case it declares the generated coinduction hypotheses and term substitutions that were used in order to prove the  ``Desired Goal''. 
