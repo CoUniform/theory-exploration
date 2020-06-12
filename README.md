@@ -28,11 +28,11 @@ Example|    Program                                                 |  Desired G
 | (2)   |  kappa_fg: forall x,y.  p(x,y) -> p(f(x,y), g(x,y))         | exist x, y. p(x,y) |   p( f(fix[x] f(x, r), r), g(fix[x] f(x, r), r) ), where r = fix[y] g(fix[z] f(z, y), y)
 | (3)   | kappa_stream0: forall x.  stream(x) -> stream(scons(0, x)) | exist x. stream(x) | stream(scons(0, fix[x] scons(0, x)) )               | 
 | (4)   | kappa_stream01: forall x. stream_OZ (x) -> stream_ZO (scons(0, x)); 
-kappa_stream10: forall x. stream_ZO (x) -> stream_OZ(scons(1, x)) |  exist x. stream_ZO (x)  |  stream_ZO( scons(0, scons(1, fix[x] scons(0, scons(1, x)))) ) |
+|| kappa_stream10: forall x. stream_ZO (x) -> stream_OZ(scons(1, x)) |  exist x. stream_ZO (x)  |  stream_ZO( scons(0, scons(1, fix[x] scons(0, scons(1, x)))) ) |
 | (5)   |kappa_u: forall x.  p(f(x)) -> p(x) | p(a) |    forall x. p(x) |
 | (6)   | kappa_i1: forall x.  p(f(x)) & q(x) -> p(x) 
-  kappa_i2: q(a) 
-  kappa_i3: forall x.  q(x) -> q(f(x))  |  p(a)  | forall x. q(x) -> p(x) |
+||  kappa_i2: q(a) 
+||  kappa_i3: forall x.  q(x) -> q(f(x))  |  p(a)  | forall x. q(x) -> p(x) |
       
   \hline
     7 &
