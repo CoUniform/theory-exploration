@@ -23,7 +23,7 @@ That is, the user interaction with the tool consists of the following steps:
 <h3> Examples: </h3>  
   
 Example|    Program                                                 |  Desired Goal      | Discovered Coinduction Hypothesis                     |
-:------|:-----------------------------------------------------------|-------------------:|:-----------------------------------------------------|
+:------|:-----------------------------------------------------------|-------------------:|:------------------------------------------------------|
 |  (1) |  kappa_fg: forall x,y.  p(x,y) -> p(f(y), g(x))             | exist x, y. p(x,y) | p( f(fix[x] g(f(x)))  ,  g(f(fix[x] g(f(x)))) ) |
 | (2)   |  kappa_fg: forall x,y.  p(x,y) -> p(f(x,y), g(x,y))         | exist x, y. p(x,y) |   p( f(fix[x] f(x, r), r), g(fix[x] f(x, r), r) ), where r = fix[y] g(fix[z] f(z, y), y)
 | (3)   | kappa_stream0: forall x.  stream(x) -> stream(scons(0, x)) | exist x. stream(x) | stream(scons(0, fix[x] scons(0, x)) )               | 
@@ -34,58 +34,11 @@ Example|    Program                                                 |  Desired G
 ||  kappa_i2: q(a) 
 ||  kappa_i3: forall x.  q(x) -> q(f(x))  |  p(a)  | forall x. q(x) -> p(x) |
 | (7) | kappa_from: forall x, y. fromP(s(x), y) -> fromP(x, scons(x, y))  | exist x, y. fromP(x, y)  |  fromP(infty, scons(infty, fix[y] scons(infty, y))), where infty = fix[x] s(x)|
+| (8) | kappa_from &: forall x, y. fromP(s(x), y) -> fromP(x, scons(x, y)) | exist y. fromP(0, y)  |  forall x. fromP(n, (fix[f] lam x. scons(x, f (s(x)))))| 
+| (9) | kappa_fib: forall x, y, z. fib(y, plusFun(x, y), z) -> fib(x, y, scons(x, z)) | exist x, y, z. fib(x, y, z)  |   fib(  infty,  infty, (scons ( infty,  (fix[z] (scons ( infty , z))), where infty = fix[x] plusFun ( x , x)|
+| (10) | kappa_fib: forall x, y, z. fib(y, plusFun(x, y), z) -> fib(x, y, scons(x, z)) | exist z. fib(0, 1, z) | 
+         forall x , y. fib (x,  y ,  (f ( x, y)) where f = fix[f] lam u , v. scons( u , (f ( v , (plusFun ( u , v))))|
 
-
-  \hline
-    8 &
-    \begin{array}{ll}
-      \kappa_{from} &: \all{x, y} \fromP(s(x), y) \impl \fromP(x, \scons(x, y)) \\
-    \end{array}
-    & \exist{y} \fromP(0, y) \\
-  \hline
-    9 &
-    \begin{array}{ll}
-      \kappa_{fib} &: \all{x, y, z} \fib(y, \plusFun(x, y), z) \impl \fib(x, y, \scons(x, z)) \\
-    \end{array}
-    & \exist{x, y, z} \fib(x, y, z) \\
-  \hline
-    10 &
-    \begin{array}{ll}
-      \kappa_{fib} &: \all{x, y, z} \fib(y, \plusFun(x, y), z) \impl \fib(x, y, \scons(x, z)) \\
-    \end{array}
-    & \exist{z} \fib(0, 1, z) \\
-
-
-
- 
-    6 &
-    \\
-  \hline
-    7 &
-    \begin{array}{l}
-      \\
-      \qquad \texttt{where  } \infty = \fix[x] s \, x
-    \end{array}     \\
-  \hline
-    8 &
-    \all{x} \fromP(n, (\fix[f] \lam{x} \scons(x, f \, (s(x)))) \, n)  \\
-  \hline
-    9 &
-    \begin{array}{l}
-      \fib \, \infty \, \infty \,
-      (\scons \, \infty \, (\fix[z] (\scons \, \infty \, z))) \\
-      \qquad \texttt{where  } \infty = \fix[x] \plusFun \, x \, x
-    \end{array}     \\
-  \hline
-    10
-     & \begin{array}{l}
-         \all{x \, y} \fib \, x \, y \, (f \, x \, y) \\
-         \qquad \texttt{where  }
-         f = \fix[f] \lam{u \, v} \scons \, u \, (f \, v \, (\plusFun \, u \, v))
-       \end{array}
-     \\
-     \hline
-\end{array} \]
 
 
 <h3> To install: </h3>
