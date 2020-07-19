@@ -44,6 +44,10 @@ Example|    Program                                                 |  Desired G
 
 Use `make` to compile and `./theory_exp ` to run the tool
 
+<h3> These Examples in Coq: </h3>
+
+The above examples are also reproduced in Coq, see the file [CoqExperiments.v](https://github.com/CoUniform/theory-exploration/blob/master/CoqExperiments.v) 
+
 <h3> References </h3>
 [1] H. Basold, E. Komendantskaya, Y. Li: Coinduction in Uniform: Foundations for Corecursive Proof Search with Horn Clauses. ESOP 2019 (28th European Symposium on Programming), 8-11 April 2019, Prague.
 
